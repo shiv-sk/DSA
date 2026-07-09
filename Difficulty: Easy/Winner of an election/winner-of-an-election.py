@@ -1,21 +1,16 @@
 class Solution:
-    
-    #Complete this function
-    
-    #Function to return the name of candidate that received maximum votes.
-    def winner(self,arr,n):
-        # Your code here
-        # return the name of the winning candidate and the votes he recieved
-        candidate_vote = {}
+
+    def winner(self, arr):
+        candidate_votes = {}
         for candidate in arr:
-            candidate_vote[candidate] = candidate_vote.get(candidate, 0) + 1
-        max_vote = -1
-        winner = ""
-        for candidate, votes in candidate_vote.items():
-            if votes > max_vote:
-                max_vote = votes
-                winner = candidate
-            elif votes == max_vote:
-                if candidate < winner:
-                    winner = candidate
-        return [winner, str(max_vote)]
+            candidate_votes[candidate] = candidate_votes.get(candidate, 0) + 1
+        max_votes = 0
+        max_votes_candidate = ""
+        for candidate in arr:
+            if candidate_votes[candidate] > max_votes:
+                max_votes = candidate_votes[candidate]
+                max_votes_candidate = candidate
+            elif candidate_votes[candidate] == max_votes:
+                if candidate < max_votes_candidate:
+                    max_votes_candidate = candidate
+        return [max_votes_candidate, max_votes]
