@@ -6,7 +6,7 @@ class Solution:
            
             if nums[i] == 1:
                 consecutive_ones += 1
-                max_ones = max(max_ones, consecutive_ones)
             else:
+                max_ones = max(max_ones, consecutive_ones)
                 consecutive_ones = 0
-        return max_ones
+        return max(max_ones,  consecutive_ones)
