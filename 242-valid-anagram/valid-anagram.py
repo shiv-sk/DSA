@@ -15,10 +15,16 @@ class Solution:
         #     if s.count(char) != t.count(char):
         #         return False
         # return True
-        s_map = {}
-        t_map = {}
-        for char in s:
-            s_map[char] = s_map.get(char, 0) + 1
-        for char in t:
-            t_map[char] = t_map.get(char, 0) + 1
-        return s_map == t_map
+        # s_map = {}
+        # t_map = {}
+        # for char in s:
+        #     s_map[char] = s_map.get(char, 0) + 1
+        # for char in t:
+        #     t_map[char] = t_map.get(char, 0) + 1
+        # return s_map == t_map
+        sorted_s = "".join(sorted(s))
+        sorted_t = "".join(sorted(t))
+        for i in range(len(sorted_s)):
+            if sorted_s[i] != sorted_t[i]:
+                return False
+        return True
